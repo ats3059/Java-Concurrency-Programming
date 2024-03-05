@@ -21,9 +21,12 @@ public class InterruptedExceptionExample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        // 지금 thread의 상태는 sleep() 즉 block 상태이다 ( 자바에서 말하는 BLOCK 상태를 말하는 것이 아님 )
+        // 지금 상태에서 interrupt를 호출 시 InterruptedException 발생하며 예외처리를 진행하게 된다.
         thread.interrupt();
+        // 쓰레드의 작업이 끝날때까지 대기한다.
         thread.join();
+        // true
         System.out.println("인터럽트 상태 3: " + thread.isInterrupted());
     }
 }
