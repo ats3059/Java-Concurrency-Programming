@@ -5,6 +5,9 @@ public class ThreadGroupExample {
     public static void main(String[] args) {
         // 메인 스레드 그룹 가져오기
         ThreadGroup mainGroup = Thread.currentThread().getThreadGroup();
+        System.out.println(mainGroup.getParent().getName());
+        // JVM 실행 시 시스템 스레드 그룹이 만들어지는데 메인 그룹이 여기에 속하게 된다.
+        System.out.println(mainGroup.getName());
 
         // 새로운 스레드 그룹 생성
         ThreadGroup customGroup = new ThreadGroup("Custom Thread Group");

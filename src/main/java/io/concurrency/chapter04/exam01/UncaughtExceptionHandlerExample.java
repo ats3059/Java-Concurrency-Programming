@@ -14,7 +14,7 @@ public class UncaughtExceptionHandlerExample {
             throw new RuntimeException("예기치 않은 예외!");
         });
 
-        // 스레드의 UncaughtExceptionHandler 설정
+        // 스레드의 UncaughtExceptionHandler 설정 -> 해당 쓰레드에만 설정하는 예외처리 핸들러
         thread.setUncaughtExceptionHandler((t, e) -> {
             LOGGER.log(Level.SEVERE, t.getName() + " 에서 예외가 발생했습니다.", e);
 

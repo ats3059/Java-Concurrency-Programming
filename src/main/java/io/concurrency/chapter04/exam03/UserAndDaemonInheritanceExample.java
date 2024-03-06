@@ -1,6 +1,12 @@
 package io.concurrency.chapter04.exam03;
 
 public class UserAndDaemonInheritanceExample {
+    /*
+        사용자 스레드에서 스레드를 생성한다면 사용자 스레드가 생성되고
+        ex) main 스레드 내부에서 스레드를 생성한다면 main 스레드(사용자 스레드)의 자식 즉 사용자 스레드로 생성됨
+        데몬 스레드에서 스레드를 생성한다면 데몬 스레드가 된다
+
+     */
     public static void main(String[] args) {
 
         // 사용자 스레드 생성
