@@ -4,11 +4,11 @@ public class InheritableThreadLocalExample {
     public static InheritableThreadLocal<String> inheritableThreadLocal = new InheritableThreadLocal<>();
 
     public static void main(String[] args) {
-
+        // main 스레드의 값
         inheritableThreadLocal.set("부모 스레드의 값");
 
         Thread childThread = new Thread(() -> {
-            // 부모 스레드로부터 값 상속
+            // 부모 (main) 스레드로부터 값 상속
             System.out.println("자식 스레드에서 상속받은 값: " + inheritableThreadLocal.get());
 
             // 자식 스레드에서 값을 변경
