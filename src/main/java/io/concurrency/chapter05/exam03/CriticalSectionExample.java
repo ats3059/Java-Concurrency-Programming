@@ -18,14 +18,14 @@ class SharedResource {
     public void increment() {
 
         for (int i = 0; i < 100000; i++) {
-
-            synchronized (this) { // Entry Section
-
+            // 동기화 처리를 위해 진입하는 구역 = Entry Section
+//            synchronized (this) { // Entry Section
+                // 임계영역
                 // Critical Section
                 counter++;
                 System.out.println(Thread.currentThread().getName() + ": " + counter);
 
-            }// Exit Section
+//            }// Exit Section
         }
 
         // Remainder Section

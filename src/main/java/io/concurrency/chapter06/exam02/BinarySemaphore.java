@@ -1,6 +1,9 @@
 package io.concurrency.chapter06.exam02;
 
 public class BinarySemaphore implements CommonSemaphore {
+    /*
+        이진 세마포어는 Mutex와 거의 같다. 단지 signal을 lock으로 대체한다는점
+     */
     private int signal = 1;
 
     public synchronized void acquired() {
