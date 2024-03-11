@@ -1,12 +1,12 @@
 package io.concurrency.chapter07.exam01.block;
 
 public class InstanceBlockSynchronizedExamples {
-
     private int count = 0;
 
     private Object lockObject = new Object();
 
     public void incrementBlockThis(){
+        // this -> InstanceBlockSynchronizedExamples 인스턴스의 모니터
         synchronized (this){
             count++;
             System.out.println(Thread.currentThread().getName() + " 가 This 에 의해 블록 동기화 함 : " + count);
