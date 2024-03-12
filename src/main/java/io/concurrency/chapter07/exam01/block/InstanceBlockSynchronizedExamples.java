@@ -13,6 +13,7 @@ public class InstanceBlockSynchronizedExamples {
         }
     }
     public void incrementBlockLockObject() {
+
         synchronized (lockObject){
             count++;
             System.out.println(Thread.currentThread().getName() + " 가 LockObject 에 의해 블록 동기화 함 : " + count);

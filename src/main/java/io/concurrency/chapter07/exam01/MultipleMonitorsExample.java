@@ -25,8 +25,14 @@ class BankAccount {
     }
 
     public boolean transfer(BankAccount to, double amount) {
+        // 실행부분에서 AccountBookA의 lock
         synchronized (this.lock) {
+            // 실행부분에서 AccountBookB의 lock
             if (this.withdraw(amount)) {
+                /*
+                 AccountB에 lock을 획득해야 하는 이유는 계좌간의 거래가 끝날때까지 원자성이 보장되어야 하기 때문
+                 AccountB와 AccountA 둘 다.
+                 */
                 synchronized (to.lock) {
                     to.deposit(amount);
                     return true;
