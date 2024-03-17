@@ -1,6 +1,12 @@
 package io.concurrency.chapter07.exam04;
 
 public class NonDeadlockObjectsExample {
+    /*
+        thread1 시작 후 ResourceA의 정적 모니터락을 획득 -> 다음 ResourceB 락을 획득
+        thread1이 먼저 ResourceA 정적락을 획득했기 때문에 thread2는 처음에 실행 해야하는 resourceB.methodB(resourceA); 에서
+        ResourceA 정적 모니터락을 획득하지 못하고 대기하게 된다. 결국 thread1의 작업이 모두 종료 후 ResourceA의 정적락을 획득하게 된다.
+        -> 데드락 회피
+     */
     public static void main(String[] args) {
 
         ResourceA resourceA = new ResourceA();

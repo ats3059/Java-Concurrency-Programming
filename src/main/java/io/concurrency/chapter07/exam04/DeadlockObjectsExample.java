@@ -1,6 +1,15 @@
 package io.concurrency.chapter07.exam04;
 
 public class DeadlockObjectsExample {
+    /*
+        스레드1
+            ResourceA 인스턴스 모니터 락 획득 락을 반납하지 않고 ResourceB의 인스턴스 모니터락을 획득 시도
+        스레드2
+            ResourceB 인스턴스 모니터 락 획득 락을 반납하지 않고 ResourceB 인스턴스 모니터락을 획득 시도
+
+        두개의 스레드가 서로 락을 획득한 뒤 반납하지 않고 다른 한쪽의 락을 획득하기 위해서 무한대기 -> 데드락
+
+     */
     public static void main(String[] args) {
 
         ResourceA resourceA = new ResourceA();
