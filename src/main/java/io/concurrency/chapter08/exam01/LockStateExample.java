@@ -5,6 +5,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockStateExample {
 
     private static final ReentrantLock lock = new ReentrantLock();
+    /*
+        ReentrantLock은 lock을 획득한 만큼 해제해야한다.
+     */
 
     public static void main(String[] args) {
         Thread thread1 = new Thread(() -> {

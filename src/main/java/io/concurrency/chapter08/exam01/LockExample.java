@@ -1,5 +1,6 @@
 package io.concurrency.chapter08.exam01;
 
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -7,25 +8,27 @@ public class LockExample {
     private int count = 0;
     private Lock lock = new ReentrantLock();
 
-    public void increment() {
-        lock.lock(); // 락을 명시적으로 활성화
+    public void increment(){
+        lock.lock(); // -> synchronized 사용하는 것과 같다 명시적으로 사용하는 것
         try {
             count++;
         } finally {
-            lock.unlock(); // 락을 해제, finally 블록에서 작성
+            lock.unlock();
         }
     }
 
-    public int getCount() {
-        lock.lock(); // 락을 명시적으로 활성화
-        try {
+
+    public int getCount(){
+        lock.lock();
+        try{
             return count;
-        } finally {
-            lock.unlock(); // 락을 해제, finally 블록에서 작성
+        }finally {
+            lock.unlock();
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
         LockExample lockExample = new LockExample();
 
         Thread thread1 = new Thread(() -> {
@@ -43,12 +46,8 @@ public class LockExample {
         thread1.start();
         thread2.start();
 
-        try {
-            thread1.join();
-            thread2.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        thread1.join();
+        thread2.join();
 
         System.out.println("Count: " + lockExample.getCount());
     }
