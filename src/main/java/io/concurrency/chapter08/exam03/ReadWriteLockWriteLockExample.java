@@ -3,7 +3,7 @@ package io.concurrency.chapter08.exam03;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ReadWriteLockWriteLockExample {
+public class  ReadWriteLockWriteLockExample {
     public static void main(String[] args) throws InterruptedException {
         ReadWriteLock lock = new ReentrantReadWriteLock();
         BankAccount account = new BankAccount(lock, 10000);

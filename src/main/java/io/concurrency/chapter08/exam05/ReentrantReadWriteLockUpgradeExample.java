@@ -5,7 +5,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReentrantReadWriteLockUpgradeExample {
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
-
+    /*
+        읽기락에서 쓰리락으로 업그레이드는 불가능하다.
+     */
     public void failedUpgradeAttempt() {
         System.out.println("읽기 잠금 획득 시도...");
         lock.readLock().lock();

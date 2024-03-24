@@ -28,6 +28,7 @@ public class ReentrantReadWriteLockDowngradeExample {
                     System.out.println("다운그레이드: 쓰기 락 -> 읽기 락");
                     // 쓰기 락 해제
                     writeLock.unlock();
+                    // 쓰기 락 해제 이후 읽기락을 획득한 스레드들이 접근이 가능해진다.
                     System.out.println("쓰기 락 해제: " + Thread.currentThread().getName());
 
                     try {
